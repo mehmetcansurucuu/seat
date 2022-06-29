@@ -1,0 +1,157 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+
+    <!-- Style Css -->
+    <link href="css/style.css" rel="stylesheet" />
+    <!-- Bootstrap CSS -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC" crossorigin="anonymous">
+    <!-- Animate Css-->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/4.1.1/animate.min.css"/>
+    <title>Select Car | SEAT</title>
+  </head>
+  <body>
+
+<div class="seatContent">
+    <header>
+        <i class="elips"></i>
+        <div class="container">
+            <div class="col-lg-12 text-center logo">
+                <a href="#" alt="Seat Logo">
+                    <img src="image/seat-logo.svg" alt="Seat Logo" title="Seat Logo" width="107" height="61"/>
+                </a>
+            </div>
+            <div class="col-lg-12 text-center">
+                <nav>                   
+                    <ul>
+                        <li>
+                            <a class="models active"><span>MODELS</span></a>
+                        </li>
+                        <li>
+                            <a class="colors"><span>COLORS</span></a>
+                        </li>
+                        <li>
+                            <a class="accessories"><span>ACCESSORIES</span></a>
+                        </li>
+                        <li>
+                            <a class="summary"><span>SUMMARY</span></a>
+                        </li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+    <main id="HomePage">
+        <div class="container">
+            <div class="row productList">
+            </div>
+                <div id="colorsList" class="col-lg-12 Passive pt-5">
+                    <div class="row text-center">
+                        <span>Hayalindeki araca dair rengini <br> seç, tarzını hemen yansıt</span>
+                        <div class="container">
+                            <div class="row">
+                                <div class="tab-slider--container col-lg-12"></div>
+                                <div class="tab-slider--nav">
+                                    <ul class="tab-slider--tabs"></ul>
+                                </div>
+                            </div>
+                        </div>                      
+                    </div>
+                </div>
+            <div class="col-lg-12 Passive text-center pt-5" id="accessoriesList">
+                    <span>Seçtiğiniz araca ait özellikler <br> konforun ve yaşam stilini belirler</span>
+                    <div class="container">
+                        <div class="col-lg-12 pt-3">
+                            <div class="row accList">
+
+                            </div>
+                        </div> 
+                    </div>
+            </div>
+
+            <div class="col-lg-12 Passive text-center pt-5" id="summaryPage">
+                <div class="container">
+                    <div class="col-lg-12">
+                        <div class="row">
+                            <div class="col-lg-6 col-sm-12 productImage text-center d-flex justify-content-center align-items-center my-height2">
+                                
+                            </div>
+                            <div class="col-lg-6 col-sm-12 proDetail">
+                                <div class="row">
+                                    <div class="col-lg-12 col-sm-4 proInfo" id="modelContent">
+                                        <strong>MODEL</strong>
+                                    </div>
+
+                                    <div class="col-lg-12 col-sm-4 proInfo" id="colorContent">
+                                        <strong>COLOR</strong>
+                                    </div>
+
+                                    <div class="col-lg-12 col-sm-4 proInfo" id="accContent">
+                                        <strong>ACCESSORIES</strong>
+                                    </div>
+                                </div>
+                                
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <div class="container">
+        <div class="col-lg-12 info p-4">
+            <div class="row">
+                <div class="col-lg-10 col-sm-8 carDetail p-3">
+                </div>
+                <div class="col-lg-2 col-sm-4 carLink">
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</div>
+    <!-- Jquery -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.0/jquery.min.js" referrerpolicy="no-referrer"></script>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" ></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.2/dist/js/bootstrap.min.js" ></script>
+
+    <!-- Scrool Magic -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/ScrollMagic.min.js" referrerpolicy="no-referrer"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ScrollMagic/2.0.8/plugins/animation.gsap.min.js" referrerpolicy="no-referrer"></script>
+
+    <!-- Gsap -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.10.4/gsap.min.js" referrerpolicy="no-referrer"></script>
+    
+    <!-- Costum -->
+    <script src="js/main.js"></script>
+
+ 
+    <script> 
+$("document").ready(function(){
+  $(".tab-slider--body").hide();
+  $(".tab-slider--body:first").show();
+});
+
+$('.tab-slider--nav').on('click', 'li', function() {
+//$(".tab-slider--nav li").click(function() {
+  $(".tab-slider--body").hide();
+  var activeTab = $(this).attr("rel");
+  $("#"+activeTab).fadeIn();
+	if($(this).attr("rel") == "tab2"){
+		$('.tab-slider--tabs').addClass('slide');
+	}else{
+		$('.tab-slider--tabs').removeClass('slide');
+	}
+  $(".tab-slider--nav li").removeClass("active");
+  $(this).addClass("active");
+});
+
+    </script>
+</body>
+</html>
